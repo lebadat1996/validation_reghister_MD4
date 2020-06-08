@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+</head>
+<body>
+<form th:action="@{user}" method="post" th:object="${user}">
+    <div>
+        <input type="hidden" th:field="*{id}">
+    </div>
+    <div>
+        <p>First Name</p>
+        <input type="text" th:field="*{firstName}">
+        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name Error</span>    </div>
+    <div>
+        <p>Last Name</p>
+        <input type="text" th:field="*{lastName}">
+        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</span>
+    </div>
+    <div>
+        <p>Age</p>
+        <input type="text" th:field="*{age}">
+        <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name Error</span>
+    </div>
+    <div>
+        <p>Phone Number</p>
+        <input type="text" th:field="*{phone}">
+        <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Name Error</span>
+    </div>
+    <div>
+        <p>Email</p>
+        <input type="text" th:field="*{email}">
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Name Error</span>
+    </div>
+    <div>
+        <button type="submit">Save</button>
+    </div>
+</form>
+</body>
+</html>
